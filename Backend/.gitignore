@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+.idea
+
+# Build
+*.build
+
+# Editor
+*.vscode
+
+# Other
+.env
+
+/src/generated/prisma
+
+logs
+

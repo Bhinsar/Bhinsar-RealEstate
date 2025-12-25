@@ -1,0 +1,10 @@
+// prisma/schema.prisma
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "client"
+  output     = "./prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}

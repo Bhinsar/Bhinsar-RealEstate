@@ -19,5 +19,5 @@ export default function RootLayout() {
     }
   }, [fontsLoaded]);
   
-  return fontsLoaded ? <Stack /> : null;
+  return fontsLoaded ? <Stack screenOptions={{ headerShown: false }} /> : null;
 }
