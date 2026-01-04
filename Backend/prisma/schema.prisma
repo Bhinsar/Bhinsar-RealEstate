@@ -1,10 +1,32 @@
-// prisma/schema.prisma
 generator client {
-  provider   = "prisma-client-js"
-  engineType = "client"
-  output     = "./prisma/client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+enum Role {
+  Client
+  Agent
+}
+
+enum verificationSteps {
+  Registration
+  Email
+  Phone
+}
+
+model User {
+  id                  Int              @id @default(autoincrement())
+  full_name          String
+  avatar_url         String?
+  login_otp          String?
+  role               Role              @default(Client)
+  email              String            @unique
+  phone              String?
+  password           String?
+  verification_steps verificationSteps @default(Registration)
+  created_at         DateTime          @default(now())
+  updated_at         DateTime          @updatedAt
 }

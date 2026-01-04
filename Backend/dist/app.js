@@ -8,6 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const express_rate_limit_1 = __importDefault(require("express-rate-limit"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const auth_router_1 = __importDefault(require("./modules/auth/auth.router"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 // Middleware
@@ -25,6 +26,7 @@ app.use(limiter);
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to the ReState API" });
 });
+app.use("/api/auth", auth_router_1.default);
 //404 Error
 app.use((_, res) => {
     res.status(404).json({ message: "Not Found" });

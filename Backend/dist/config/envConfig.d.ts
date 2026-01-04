@@ -3,7 +3,7 @@ export declare const config: {
         port: string;
         nodeEnv: "development" | "production" | "test";
     };
-    supabase: {
+    neon: {
         url: string;
         directUrl: string;
     };

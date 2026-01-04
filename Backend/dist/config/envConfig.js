@@ -17,6 +17,8 @@ const envSchema = zod_1.z.object({
     //Supabase
     DATABASE_URL: zod_1.z.string(),
     DIRECT_URL: zod_1.z.string(),
+    // DATABASE_ANOM_KEY: z.string(),
+    // URL: z.string(),
     //JWT
     JWT_SECRET: zod_1.z.string(),
 });
@@ -30,9 +32,11 @@ exports.config = {
         port: parsedEnv.data.PORT,
         nodeEnv: parsedEnv.data.NODE_ENV,
     },
-    supabase: {
+    neon: {
         url: parsedEnv.data.DATABASE_URL,
         directUrl: parsedEnv.data.DIRECT_URL,
+        // anonKey: parsedEnv.data.DATABASE_ANOM_KEY,
+        // supabaseUrl: parsedEnv.data.URL,
     },
     jwt: {
         secret: parsedEnv.data.JWT_SECRET,

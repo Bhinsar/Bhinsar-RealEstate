@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
+import authRouter from "./modules/auth/auth.router";
 dotenv.config();
 
 const app = express();
@@ -24,6 +25,8 @@ app.use(limiter);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the ReState API" });
 });
+
+app.use("/api/auth", authRouter);
 
 //404 Error
 app.use((_, res) => {
